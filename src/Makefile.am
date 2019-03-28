@@ -10,7 +10,7 @@ AM_CPPFLAGS = \
 bin_PROGRAMS = pixeleditor
 # pixeleditor_LDFLAGS = $(LDFLAGS)
 
-LDADD = $(top_builddir)/src/ui/libui.a $(LDFLAGS)
+LDADD = $(top_builddir)/src/ui/libui.a
 pixeleditor_SOURCES = main.c
 
 
