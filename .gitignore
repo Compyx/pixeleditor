@@ -52,3 +52,5 @@ config.h
 pixeleditor
 pixeleditor.exe
 *.a
+
+.dirstamp

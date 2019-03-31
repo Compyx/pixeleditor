@@ -7,6 +7,8 @@
 #include <gtk/gtk.h>
 #include "debug.h"
 
+#include "fpe-resources.h"
+
 #include "mainheader.h"
 #include "statusbar.h"
 
@@ -98,6 +100,7 @@ GtkWidget *mainwindow_create(GtkApplication *app)
     GtkWidget *header;
 
     debug_gtk3("called.");
+
 
     window = gtk_application_window_new(app);
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);

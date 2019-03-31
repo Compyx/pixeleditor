@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <gtk/gtk.h>
 
+#include "debug.h"
+#include "fpe-resources.h"
+
 #include "mainwindow.h"
+
+
+
 
 /** \brief  Handler for the 'active' event of the main application
  *
@@ -31,7 +36,12 @@ static void on_activate(GtkApplication *app,
 int main(int argc, char *argv[])
 {
     GtkApplication *app;
+    GResource *resource;
     int status;
+
+    debug_gtk3("Registering GResource.");
+    resource = fpe_get_resource();
+    g_resources_register(resource);
 
     app = gtk_application_new(
             "nl.compyx.pixeleditor",
@@ -40,7 +50,6 @@ int main(int argc, char *argv[])
     g_signal_connect(app, "activate", G_CALLBACK(on_activate), NULL);
 
     status = g_application_run(G_APPLICATION(app), argc, argv);
-    g_object_unref(app);
-
+    g_resources_unregister(resource);
     return status;
 }

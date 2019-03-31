@@ -6,6 +6,7 @@
 
 #include <gtk/gtk.h>
 #include "debug.h"
+#include "fpe-resources.h"
 
 #include "mainheader.h"
 
@@ -30,8 +31,10 @@ GtkWidget *mainheader_create(void)
 
     secondary = gtk_menu_button_new();
 
-    debug_gtk3("reading XML UI file to build gears menu");
-    builder = gtk_builder_new_from_file("/home/vice/pixeleditor/data/gears-menu.ui");
+    debug_gtk3("reading XML UI file from GResource to build gears menu");
+
+    builder = gtk_builder_new_from_resource("/nl/compyx/pixeleditor/gears-menu.ui");
+
     menu = G_MENU_MODEL(gtk_builder_get_object(builder, "menu"));
     gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(secondary), menu);
     g_object_unref(builder);

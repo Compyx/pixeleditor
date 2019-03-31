@@ -1,5 +1,5 @@
 AC_INIT(pixeleditor, 0.0.1)
-AM_INIT_AUTOMAKE([-Wall -Werror])
+AM_INIT_AUTOMAKE([-Wall -Werror subdir-objects])
 AC_CONFIG_HEADER([config.h])
 AC_PROG_RANLIB
 AM_PROG_AR

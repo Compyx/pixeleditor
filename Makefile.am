@@ -3,6 +3,8 @@
 SUBDIRS = src data
 
 AM_CPPFLAGS = \
+	      -I$(top_srcdir)/data \
+	      -I$(top_builddir)/data \
 	      -I$(top_builddir)/src \
 	      -I$(top_srcdir)/src \
 	      -I$(top_srcdir)/src/ui \
