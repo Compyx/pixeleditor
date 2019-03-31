@@ -4,11 +4,18 @@
   <menu id="menu">
     <section>
       <item>
-        <attribute name="label">settings</attribute>
+        <attribute name="label">Settings</attribute>
         <attribute name="action">app.settings</attribute>
       </item>
     </section>
     <section>
+      <submenu>
+        <attribute name="label">Grid</attribute>
+        <item>
+          <attribute name="label">Enable grid</attribute>
+          <attribute name="action">app.enable_grid</attribute>
+        </item>
+      </submenu>
       <item>
         <attribute name="label">About Focus Pixel Editor</attribute>
         <attribute name="action">app.about</attribute>
