@@ -7,6 +7,7 @@
 #include <gtk/gtk.h>
 #include "debug.h"
 
+#include "mainheader.h"
 #include "statusbar.h"
 
 #include "mainwindow.h"
@@ -15,9 +16,27 @@
 static GtkWidget *mainwindow_grid;
 static GtkWidget *drawing_area;
 static GtkWidget *statusbar;
-
-
 static cairo_surface_t *surface;
+
+static void on_settings_activate(GSimpleAction *action,
+                                 GVariant *parameter,
+                                 gpointer data)
+{
+    debug_gtk3("settings activated.");
+}
+
+static void on_about_activate(GSimpleAction *action,
+                              GVariant *parameter,
+                              gpointer data)
+{
+    debug_gtk3("about activated.");
+}
+
+
+static GActionEntry app_entries[] = {
+    { "settings", on_settings_activate, NULL, NULL, NULL },
+    { "about", on_about_activate, NULL, NULL, NULL }
+};
 
 static void clear_surface(void)
 {
@@ -83,12 +102,20 @@ GtkWidget *mainwindow_create(GtkApplication *app)
     window = gtk_application_window_new(app);
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
 
+    debug_gtk3("adding GActionEntry's.");
+    g_action_map_add_action_entries(G_ACTION_MAP(app),
+            app_entries, G_N_ELEMENTS(app_entries),
+            app);
+
     grid = gtk_grid_new();
 
-    header = gtk_header_bar_new();
+    header = mainheader_create();
     gtk_header_bar_set_title(GTK_HEADER_BAR(header), "Pixel Editor");
-    gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(header), TRUE);
     gtk_window_set_titlebar(GTK_WINDOW(window), header);
+
+
+
+
 
     drawing_area = gtk_drawing_area_new();
     gtk_widget_set_hexpand(drawing_area, TRUE);
@@ -103,6 +130,7 @@ GtkWidget *mainwindow_create(GtkApplication *app)
     gtk_grid_attach(GTK_GRID(grid), statusbar, 0, 1, 1, 1);
 
     gtk_container_add(GTK_CONTAINER(window), grid);
+
 
     return window;
 }

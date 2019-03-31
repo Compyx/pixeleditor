@@ -6,5 +6,11 @@ AM_CPPFLAGS = \
 	      -I$(top_srcdir)/src/lib \
 	      -I$(top_srcdir)/src/ui
 
-libui_a_SOURCES = mainwindow.c mainwindow.h statusbar.c statusbar.h
+libui_a_SOURCES = mainwindow.c \
+		  mainwindow.h \
+		  mainheader.c \
+		  mainheader.h \
+		  statusbar.c \
+		  statusbar.h
+
 noinst_LIBRARIES = libui.a

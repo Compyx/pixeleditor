@@ -1,0 +1,17 @@
+<!-- vim: set et ts=2 sw=2 sts=2: -->
+<interface>
+  <menu id="menu">
+    <section>
+      <item>
+        <attribute name="label">settings</attribute>
+        <attribute name="action">app.settings</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label">About Focus Pixel Editor</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

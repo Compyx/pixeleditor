@@ -50,7 +50,8 @@ echo "LDFLAGS = $LDFLAGS"
 
 
 dnl Process Makefile.am to generate Makefile
-AC_CONFIG_FILES([src/Makefile
+AC_CONFIG_FILES([data/Makefile
+                 src/Makefile
                  src/lib/Makefile
                  src/ui/Makefile])
 
