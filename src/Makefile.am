@@ -11,6 +11,9 @@ AM_CPPFLAGS = \
 bin_PROGRAMS = pixeleditor
 # pixeleditor_LDFLAGS = $(LDFLAGS)
 
+# Trigger rebuild of GResource files. There's probably a better way
+main.c: $(top_builddir)/data/fpe-resources.c $(top_builddir)/data/fpe-resources.h
+
 
 LDADD = $(top_builddir)/src/ui/libui.a
 pixeleditor_SOURCES = main.c

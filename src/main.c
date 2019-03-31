@@ -40,8 +40,7 @@ int main(int argc, char *argv[])
     int status;
 
     debug_gtk3("Registering GResource.");
-    resource = fpe_get_resource();
-    g_resources_register(resource);
+    fpe_register_resource();
 
     app = gtk_application_new(
             "nl.compyx.pixeleditor",
@@ -49,7 +48,11 @@ int main(int argc, char *argv[])
 
     g_signal_connect(app, "activate", G_CALLBACK(on_activate), NULL);
 
+    debug_gtk3("Running application.");
     status = g_application_run(G_APPLICATION(app), argc, argv);
-    g_resources_unregister(resource);
+
+    debug_gtk3("Exiting: unregistering GResource.");
+    fpe_unregister_resource();
+
     return status;
 }
