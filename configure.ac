@@ -31,6 +31,8 @@ dnl Check for zlib
 AC_CHECK_HEADERS(zlib.h, [], [AC_ERROR([A working zlib is required])])
 AC_SEARCH_LIBS(deflate, z, [], [AC_ERROR([A working zlib is required])])
 
+AC_CHECK_PROG([HAVE_XMLLINT], [xmllint], [true], [false])
+
 dnl Look for pkg-config and search for required modules
 PKG_PROG_PKG_CONFIG
 PKG_CHECK_MODULES([GTK], gtk+-3.0 >= 3.22)
@@ -47,7 +49,7 @@ AC_SUBST([LDFLAGS])
 echo "----------------"
 echo "CFLAGS = $CFLAGS"
 echo "LDFLAGS = $LDFLAGS"
-
+echo "HAVE_XMLLINT = $HAVE_XMLLINT"
 
 dnl Process Makefile.am to generate Makefile
 AC_CONFIG_FILES([data/Makefile

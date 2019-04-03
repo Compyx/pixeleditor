@@ -13,6 +13,8 @@ libui_a_SOURCES = mainwindow.c \
 		  mainheader.h \
 		  statusbar.c \
 		  statusbar.h \
+		  uiabout.c \
+		  uiabout.h \
 		  $(top_builddir)/data/fpe-resources.c \
 		  $(top_builddir)/data/fpe-resources.h
 

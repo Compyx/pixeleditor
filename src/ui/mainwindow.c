@@ -11,6 +11,7 @@
 
 #include "mainheader.h"
 #include "statusbar.h"
+#include "uiabout.h"
 
 #include "mainwindow.h"
 
@@ -32,6 +33,9 @@ static void on_about_activate(GSimpleAction *action,
                               gpointer data)
 {
     debug_gtk3("about activated.");
+
+    ui_about_dialog_popup(data);
+
 }
 
 
@@ -108,7 +112,7 @@ GtkWidget *mainwindow_create(GtkApplication *app)
     debug_gtk3("adding GActionEntry's.");
     g_action_map_add_action_entries(G_ACTION_MAP(app),
             app_entries, G_N_ELEMENTS(app_entries),
-            app);
+            window);
 
     grid = gtk_grid_new();
 
