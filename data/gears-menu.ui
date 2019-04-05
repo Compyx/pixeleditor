@@ -16,6 +16,24 @@
           <attribute name="action">app.enable_grid</attribute>
         </item>
       </submenu>
+      <submenu>
+        <attribute name="label">Palette</attribute>
+          <item>
+            <attribute name="label">c64hq</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">c64hq</attribute>
+          </item>
+          <item>
+            <attribute name="label">c64s</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">c64s</attribute>
+          </item>
+          <item>
+            <attribute name="label">ccs64</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">ccs64</attribute>
+          </item>
+      </submenu>
       <item>
         <attribute name="label">About Focus Pixel Editor</attribute>
         <attribute name="action">app.about</attribute>

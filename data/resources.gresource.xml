@@ -2,6 +2,29 @@
 
 <gresources>
     <gresource prefix="/nl/compyx/pixeleditor">
+        <!-- UI files -->
         <file compressed="true">gears-menu.ui</file>
+
+        <!-- CBM charset -->
+        <file alias="chargen">c64/chargen</file>
+
+        <!-- C64 VICE palette files -->
+        <file>c64/c64hq.vpl</file>
+        <file>c64/c64s.vpl</file>
+        <file>c64/ccs64.vpl</file>
+        <file>c64/cjam.vpl</file>
+        <file>c64/colodore.vpl</file>
+        <file>c64/community-colors.vpl</file>
+        <file>c64/deekay.vpl</file>
+        <file>c64/frodo.vpl</file>
+        <file>c64/godot.vpl</file>
+        <file>c64/pc64.vpl</file>
+        <file>c64/pepto-ntsc-sony.vpl</file>
+        <file>c64/pepto-ntsc.vpl</file>
+        <file>c64/pepto-palold.vpl</file>
+        <file>c64/pepto-pal.vpl</file>
+        <file>c64/ptoing.vpl</file>
+        <file>c64/rgb.vpl</file>
+        <file>c64/vice.vpl</file>
     </gresource>
 </gresources>

@@ -39,9 +39,20 @@ static void on_about_activate(GSimpleAction *action,
 }
 
 
+static void on_set_palette(GSimpleAction *action,
+                           GVariant *parameter,
+                           gpointer data)
+{
+    debug_gtk3("set_palette activated.");
+    debug_gtk3("parameter is '%s'.", g_variant_get_string(parameter, NULL));
+    g_simple_action_set_state(action, parameter);
+}
+
+
 static GActionEntry app_entries[] = {
     { "settings", on_settings_activate, NULL, NULL, NULL },
-    { "about", on_about_activate, NULL, NULL, NULL }
+    { "about", on_about_activate, NULL, NULL, NULL },
+    { "set_palette", NULL, "s", "'c64hq'", on_set_palette },
 };
 
 static void clear_surface(void)
