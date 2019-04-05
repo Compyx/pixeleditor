@@ -95,7 +95,6 @@ static gboolean on_canvas_draw(GtkWidget *widget,
                                 cairo_t *cr,
                                 gpointer data)
 {
-    debug_gtk3("called.");
     cairo_set_source_surface(cr, surface, 0, 0);
     cairo_paint(cr);
     return FALSE;

@@ -1,5 +1,7 @@
 Makefile
 Makefile.in
+fpe-resources.c
+fpe-resources.h
 *.o
 *.swp
 *~

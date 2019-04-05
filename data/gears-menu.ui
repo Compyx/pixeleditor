@@ -33,6 +33,85 @@
             <attribute name="action">app.set_palette</attribute>
             <attribute name="target">ccs64</attribute>
           </item>
+          <item>
+            <attribute name="label">cjam</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">cjam</attribute>
+          </item>
+          <item>
+            <attribute name="label">colodore</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">colodore</attribute>
+          </item>
+          <item>
+            <attribute name="label">community-colors</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">community-colors</attribute>
+          </item>
+          <item>
+            <attribute name="label">deekay</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">deekay</attribute>
+          </item>
+          <item>
+            <attribute name="label">frodo</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">frodo</attribute>
+          </item>
+          <item>
+            <attribute name="label">godot</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">godot</attribute>
+          </item>
+          <item>
+            <attribute name="label">pc64</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">pc64</attribute>
+          </item>
+          <item>
+            <attribute name="label">pepto-ntsc-sony</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">pepto-ntsc-sony</attribute>
+          </item>
+          <item>
+            <attribute name="label">pepto-ntsc</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">pepto-ntsc</attribute>
+          </item>
+          <item>
+            <attribute name="label">pepto-palold</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">pepto-palold</attribute>
+          </item>
+          <item>
+            <attribute name="label">pepto-pal</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">pepto-pal</attribute>
+          </item>
+          <item>
+            <attribute name="label">ptoing</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">ptoing</attribute>
+          </item>
+          <item>
+            <attribute name="label">rgb</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">rgb</attribute>
+          </item>
+          <item>
+            <attribute name="label">vice</attribute>
+            <attribute name="action">app.set_palette</attribute>
+            <attribute name="target">vice</attribute>
+          </item>
+
+
+
+
+
+
+
+
+
       </submenu>
       <item>
         <attribute name="label">About Focus Pixel Editor</attribute>
