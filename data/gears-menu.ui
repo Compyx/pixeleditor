@@ -4,6 +4,12 @@
   <menu id="menu">
     <section>
       <item>
+        <attribute name="label">Fullscreen</attribute>
+        <attribute name="action">app.toggle_fullscreen</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
         <attribute name="label">Settings</attribute>
         <attribute name="action">app.settings</attribute>
       </item>

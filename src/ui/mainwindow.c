@@ -16,6 +16,7 @@
 #include "mainwindow.h"
 
 
+static GtkWidget *main_window;
 static GtkWidget *mainwindow_grid;
 static GtkWidget *drawing_area;
 static GtkWidget *statusbar;
@@ -39,6 +40,29 @@ static void on_about_activate(GSimpleAction *action,
 }
 
 
+static void on_toggle_fullscreen(GSimpleAction *action,
+                                 GVariant *value,
+                                 gpointer data)
+{
+    GVariant *state = g_action_get_state(G_ACTION(action));
+    gboolean b = g_variant_get_boolean(state);
+    g_variant_unref(state);
+
+    /* 'floating', so do not unref, the change_state() call 'consumes' it
+     * according to the docs */
+    state = g_variant_new_boolean(!b);
+    g_action_change_state(G_ACTION(action), state);
+
+    debug_gtk3("toggle fullscreen activated: new state = %s.",
+            !b ? "TRUE" : "FALSE");
+    if (!b) {
+        gtk_window_fullscreen(GTK_WINDOW(main_window));
+    } else {
+        gtk_window_unfullscreen(GTK_WINDOW(main_window));
+    }
+}
+
+
 static void on_set_palette(GSimpleAction *action,
                            GVariant *parameter,
                            gpointer data)
@@ -49,7 +73,11 @@ static void on_set_palette(GSimpleAction *action,
 }
 
 
+static const char *fullscreen_accels[2] = { "<Control>F", NULL };
+
+
 static GActionEntry app_entries[] = {
+    { "toggle_fullscreen", on_toggle_fullscreen, NULL, "false", NULL },
     { "settings", on_settings_activate, NULL, NULL, NULL },
     { "about", on_about_activate, NULL, NULL, NULL },
     { "set_palette", NULL, "s", "'c64hq'", on_set_palette },
@@ -123,16 +151,14 @@ GtkWidget *mainwindow_create(GtkApplication *app)
     g_action_map_add_action_entries(G_ACTION_MAP(app),
             app_entries, G_N_ELEMENTS(app_entries),
             window);
-
+    gtk_application_set_accels_for_action(GTK_APPLICATION(app),
+                                          "app.toggle_fullscreen",
+                                          fullscreen_accels);
     grid = gtk_grid_new();
 
     header = mainheader_create();
     gtk_header_bar_set_title(GTK_HEADER_BAR(header), "Pixel Editor");
     gtk_window_set_titlebar(GTK_WINDOW(window), header);
-
-
-
-
 
     drawing_area = gtk_drawing_area_new();
     gtk_widget_set_hexpand(drawing_area, TRUE);
@@ -148,6 +174,7 @@ GtkWidget *mainwindow_create(GtkApplication *app)
 
     gtk_container_add(GTK_CONTAINER(window), grid);
 
+    main_window = window;
 
     return window;
 }

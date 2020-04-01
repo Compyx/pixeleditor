@@ -1,7 +1,7 @@
 # vim: set noet ts=8 sw=8 sts=8:
 
 # Disable dependency tracking, that fails sometimes for obscure reasons
-AUTOMAKE_OPTIONS = no-dependencies
+#AUTOMAKE_OPTIONS = no-dependencies
 
 SUBDIRS = src data
 
