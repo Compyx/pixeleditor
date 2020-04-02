@@ -17,7 +17,6 @@
 
 
 static GtkWidget *main_window;
-static GtkWidget *mainwindow_grid;
 static GtkWidget *drawing_area;
 static GtkWidget *statusbar;
 static cairo_surface_t *surface;
@@ -40,6 +39,17 @@ static void on_about_activate(GSimpleAction *action,
 }
 
 
+/** \brief  Fullscreen toggle handler
+ *
+ * Switches the UI to/from fullscreen.
+ *
+ * The current code looks a little silly due to \a value returning the old
+ * value and having to manually switch state.
+ *
+ * \param[in,out]   action  action
+ * \param[in]       value   ignored
+ * \param[in]       data    ingored
+ */
 static void on_toggle_fullscreen(GSimpleAction *action,
                                  GVariant *value,
                                  gpointer data)
@@ -48,14 +58,17 @@ static void on_toggle_fullscreen(GSimpleAction *action,
     gboolean b = g_variant_get_boolean(state);
     g_variant_unref(state);
 
+    /* flip the value so the rest of the code kinda makes sense */
+    b = !b;
+
     /* 'floating', so do not unref, the change_state() call 'consumes' it
      * according to the docs */
-    state = g_variant_new_boolean(!b);
+    state = g_variant_new_boolean(b);
     g_action_change_state(G_ACTION(action), state);
 
     debug_gtk3("toggle fullscreen activated: new state = %s.",
-            !b ? "TRUE" : "FALSE");
-    if (!b) {
+            b ? "TRUE" : "FALSE");
+    if (b) {
         gtk_window_fullscreen(GTK_WINDOW(main_window));
     } else {
         gtk_window_unfullscreen(GTK_WINDOW(main_window));
@@ -63,6 +76,7 @@ static void on_toggle_fullscreen(GSimpleAction *action,
 }
 
 
+/** \brief  I need docs */
 static void on_set_palette(GSimpleAction *action,
                            GVariant *parameter,
                            gpointer data)
@@ -73,16 +87,24 @@ static void on_set_palette(GSimpleAction *action,
 }
 
 
+/** \brief  I need docs */
 static const char *fullscreen_accels[2] = { "<Control>F", NULL };
 
 
+/** \brief  I need docs */
 static GActionEntry app_entries[] = {
-    { "toggle_fullscreen", on_toggle_fullscreen, NULL, "false", NULL },
-    { "settings", on_settings_activate, NULL, NULL, NULL },
-    { "about", on_about_activate, NULL, NULL, NULL },
-    { "set_palette", NULL, "s", "'c64hq'", on_set_palette },
+    { "toggle_fullscreen", on_toggle_fullscreen, NULL, "false", NULL,
+        { 16, 435, 12 } },
+    { "settings", on_settings_activate, NULL, NULL, NULL,
+        { 5, 145656, 345345 } },
+    { "about", on_about_activate, NULL, NULL, NULL,
+        { 420, 69, 42 } },
+    { "set_palette", NULL, "s", "'c64hq'", on_set_palette,
+        { 0, 0, 0 } }
 };
 
+
+/** \brief  I need docs */
 static void clear_surface(void)
 {
     cairo_t *cr;

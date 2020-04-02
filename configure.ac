@@ -1,6 +1,7 @@
 AC_INIT(pixeleditor, 0.0.1)
 AM_INIT_AUTOMAKE([-Wall -Werror])
 AC_CONFIG_HEADER([config.h])
+AC_CONFIG_MACRO_DIR([m4])
 AC_PROG_RANLIB
 AM_PROG_AR
 
@@ -40,8 +41,12 @@ dnl Seems to me installing Gtk3 will install the minimum GLib-.2.0 version, so
 dnl just checking for GLib 2.0 should be enough
 PKG_CHECK_MODULES([GLIB], glib-2.0)
 
-CFLAGS="$CFLAGS $GTK_CFLAGS $GLIB_CFLAGS"
+EXTRA_CFLAGS="-Wall -Wextra -std=c99 -Wno-unused-parameter -Wstrict-prototypes -Wmissing-prototypes -Wswitch-default -Wswitch-enum -Wuninitialized -Wconversion -Wredundant-decls -Wnested-externs -Wunreachable-code -O3 -g"
+
+CFLAGS="$CFLAGS $GTK_CFLAGS $GLIB_CFLAGS $EXTRA_CFLAGS"
 LDFLAGS="$LDFLAGS $GTK_LIBS $GLIB_LIBS"
+
+
 
 AC_SUBST([CFLAGS])
 AC_SUBST([LDFLAGS])
