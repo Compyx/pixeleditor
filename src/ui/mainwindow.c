@@ -28,14 +28,19 @@ static void on_settings_activate(GSimpleAction *action,
     debug_gtk3("settings activated.");
 }
 
+
+/** \brief  Signal handler to show the 'About' dialog
+ *
+ * \param[in,out]   action      GAction triggering the event
+ * \param[in]       parameter   parameter associated with \a action (ignored)
+ * \param[in]       data        extra data for the event (ignored)
+ */
 static void on_about_activate(GSimpleAction *action,
                               GVariant *parameter,
                               gpointer data)
 {
     debug_gtk3("about activated.");
-
     ui_about_dialog_popup(data);
-
 }
 
 
@@ -91,16 +96,28 @@ static void on_set_palette(GSimpleAction *action,
 static const char *fullscreen_accels[] = { "<Control><Shift>f", NULL };
 
 
-/** \brief  I need docs */
+/** \brief  List of GAction's that handle the UI's menu items
+ */
 static GActionEntry app_entries[] = {
-    { "toggle_fullscreen", on_toggle_fullscreen, NULL, "false", NULL,
-        { 16, 435, 12 } },
-    { "settings", on_settings_activate, NULL, NULL, NULL,
-        { 5, 145656, 345345 } },
-    { "about", on_about_activate, NULL, NULL, NULL,
-        { 420, 69, 42 } },
-    { "set_palette", NULL, "s", "'c64hq'", on_set_palette,
-        { 0, 0, 0 } }
+    {
+        .name = "toggle_fullscreen",
+        .activate = on_toggle_fullscreen,
+        .state = "false"
+    },
+    {
+        .name = "settings",
+        .activate = on_settings_activate
+    },
+    {
+        .name = "about",
+        .activate = on_about_activate
+    },
+    {
+        .name = "set_palette",
+        .parameter_type = "s",
+        .state = "'c64hq'",
+        .change_state =  on_set_palette
+    }
 };
 
 
