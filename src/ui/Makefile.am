@@ -21,7 +21,8 @@ libui_a_SOURCES = mainwindow.c \
 noinst_LIBRARIES = libui.a
 
 # Files to include in the GResource bin/sources
-RES_FILES = $(top_srcdir)/data/gears-menu.ui \
+RES_FILES = $(top_srcdir)/data/app-menu.ui \
+	    $(top_srcdir)/data/gears-menu.ui \
 	    $(top_srcdir)/data/c64/chargen \
 	    $(top_srcdir)/data/c64/c64hq.vpl \
 	    $(top_srcdir)/data/c64/c64s.vpl \

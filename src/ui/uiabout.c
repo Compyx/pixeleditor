@@ -53,14 +53,13 @@ void ui_about_dialog_popup(GtkWidget *parent)
 {
     GtkWidget *dialog;
 
-
     dialog = gtk_about_dialog_new();
     gtk_about_dialog_set_program_name(GTK_ABOUT_DIALOG(dialog),
                                       "Focus Pixel Editor");
     gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(dialog),
                                  "0.0.1-git");
     gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(dialog),
-                                   "(c) 2019 Bas Wassink (Compyx/Focus)");
+                                   "(c) 2019-2020  Bas Wassink (Compyx/Focus)");
     gtk_about_dialog_set_license_type(GTK_ABOUT_DIALOG(dialog),
                                       GTK_LICENSE_GPL_2_0);
     gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog),
@@ -69,8 +68,6 @@ void ui_about_dialog_popup(GtkWidget *parent)
                                  authors);
     gtk_about_dialog_set_artists(GTK_ABOUT_DIALOG(dialog),
                                  artists);
-
-
 
     gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(parent));
     gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);

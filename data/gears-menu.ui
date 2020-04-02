@@ -1,7 +1,7 @@
 <!-- vim: set et ts=2 sw=2 sts=2: -->
 <!-- "Gears" menu -->
 <interface>
-  <menu id="menu">
+  <menu id="gears-menu">
     <section>
       <item>
         <attribute name="label">Fullscreen</attribute>
@@ -109,15 +109,6 @@
             <attribute name="action">app.set_palette</attribute>
             <attribute name="target">vice</attribute>
           </item>
-
-
-
-
-
-
-
-
-
       </submenu>
       <item>
         <attribute name="label">About Focus Pixel Editor</attribute>

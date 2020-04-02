@@ -27,6 +27,12 @@ GtkWidget *mainheader_create(void)
     gtk_header_bar_set_show_close_button(GTK_HEADER_BAR(header), TRUE);
 
     primary = gtk_menu_button_new();
+    debug_gtk3("reading XML UI file from GResource to build app menu");
+    builder = gtk_builder_new_from_resource("/nl/compyx/pixeleditor/app-menu.ui");
+
+    menu = G_MENU_MODEL(gtk_builder_get_object(builder, "app-menu"));
+    gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(primary), menu);
+    g_object_unref(builder);
     gtk_header_bar_pack_start(GTK_HEADER_BAR(header), primary);
 
     secondary = gtk_menu_button_new();
@@ -35,7 +41,7 @@ GtkWidget *mainheader_create(void)
 
     builder = gtk_builder_new_from_resource("/nl/compyx/pixeleditor/gears-menu.ui");
 
-    menu = G_MENU_MODEL(gtk_builder_get_object(builder, "menu"));
+    menu = G_MENU_MODEL(gtk_builder_get_object(builder, "gears-menu"));
     gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(secondary), menu);
     g_object_unref(builder);
 

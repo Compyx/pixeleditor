@@ -3,6 +3,7 @@
 <gresources>
     <gresource prefix="/nl/compyx/pixeleditor">
         <!-- UI files -->
+        <file compressed="true">app-menu.ui</file>
         <file compressed="true">gears-menu.ui</file>
 
         <!-- CBM charset -->

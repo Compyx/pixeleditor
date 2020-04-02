@@ -1,0 +1,27 @@
+<!-- vim: set et ts=2 sw=2 sts=2: -->
+<!-- "App" menu -->
+<interface>
+  <menu id="app-menu">
+    <section>
+      <item>
+        <attribute name="label">New</attribute>
+        <attribute name="action">app.file_new</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label">Open</attribute>
+        <attribute name="action">app.file_open</attribute>
+      </item>
+      <item>
+        <attribute name="label">Save</attribute>
+        <attribute name="action">app.file_save</attribute>
+      </item>
+      <item>
+        <attribute name="label">Close</attribute>
+        <attribute name="action">app.file_close</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>
+
