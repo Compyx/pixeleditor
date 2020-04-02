@@ -38,7 +38,10 @@ static void on_response(GtkDialog *dialog,
                         gint response_id,
                         gpointer user_data)
 {
-    debug_gtk3("called with response ID %s.", response_id);
+    debug_gtk3("called with response ID %d.", response_id);
+    if (response_id == GTK_RESPONSE_DELETE_EVENT) {
+        gtk_widget_destroy(GTK_WIDGET(dialog));
+    }
 }
 
 
@@ -70,6 +73,8 @@ void ui_about_dialog_popup(GtkWidget *parent)
 
 
     gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(parent));
+    gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
+    g_signal_connect(dialog, "response", G_CALLBACK(on_response), NULL);
 
     gtk_widget_show(dialog);
 }

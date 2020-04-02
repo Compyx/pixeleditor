@@ -88,7 +88,7 @@ static void on_set_palette(GSimpleAction *action,
 
 
 /** \brief  I need docs */
-static const char *fullscreen_accels[2] = { "<Control>F", NULL };
+static const char *fullscreen_accels[] = { "<Control><Shift>f", NULL };
 
 
 /** \brief  I need docs */
