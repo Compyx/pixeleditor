@@ -53,4 +53,7 @@ pixeleditor
 pixeleditor.exe
 *.a
 
+# Meson
+/builddir
+
 .dirstamp
