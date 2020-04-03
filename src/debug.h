@@ -7,7 +7,9 @@
 #ifndef DEBUG_H_
 #define DEBUG_H_
 
+#if 0
 #include "../config.h"
+#endif
 
 #ifdef HAVE_DEBUG
 

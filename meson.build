@@ -17,7 +17,8 @@ incdirs = include_directories('.', 'src', 'src/ui', 'src/lib')
 
 
 executable('pixeleditor',
-           'src/main.c',
+           ['src/main.c', 'src/ui/mainwindow.c', 'src/ui/mainheader.c',
+            'src/ui/uiabout.c', 'src/ui/statusbar.c'],
            fpe_resources,
            include_directories : incdirs,
            dependencies: [gtkdep] )
